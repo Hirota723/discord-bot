@@ -20,8 +20,8 @@ client.once(Events.ClientReady, (c) => {
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
-  if (message.content === "こんにちわ") {
-    message.channel.send("こんにちわ！");
+  if (message.content === "hey") {
+    message.reply("Fuck!");
   }
 });
 
