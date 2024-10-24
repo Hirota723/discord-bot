@@ -1,5 +1,5 @@
-import http from "http";
-import dotenv from "dotenv";
+const http = require("http");
+const dotenv = require("dotenv");
 
 dotenv.config();
 

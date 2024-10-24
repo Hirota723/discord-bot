@@ -1,14 +1,19 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
-export function loadReplies() {
+const loadReplies = () => {
   const jsonPath = path.join(process.cwd(), "config", "replies.json");
   const rawData = fs.readFileSync(jsonPath);
   return JSON.parse(rawData);
-}
+};
 
-export function loadKeywords() {
+const loadKeywords = () => {
   const jsonPath = path.join(process.cwd(), "config", "frogKeywords.json");
   const rawData = fs.readFileSync(jsonPath);
   return JSON.parse(rawData);
-}
+};
+
+module.exports = {
+  loadReplies,
+  loadKeywords,
+};
