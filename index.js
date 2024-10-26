@@ -49,6 +49,7 @@ const model = genAI.getGenerativeModel({
 
 client.once(Events.ClientReady, (c) => {
   console.log(`準備OKです! ${c.user.tag}がログインします。`);
+  client.user.setActivity("蛙化を判定中", { type: "WATCHING" });
 });
 
 client.on("messageCreate", (message) => handleMessageCreate(message, model));
