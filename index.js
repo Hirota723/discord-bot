@@ -1,4 +1,9 @@
-const { Client, Events, GatewayIntentBits } = require("discord.js");
+const {
+  Client,
+  Events,
+  GatewayIntentBits,
+  ActivityType,
+} = require("discord.js");
 const dotenv = require("dotenv");
 const {
   GoogleGenerativeAI,
@@ -49,7 +54,10 @@ const model = genAI.getGenerativeModel({
 
 client.once(Events.ClientReady, (c) => {
   console.log(`準備OKです! ${c.user.tag}がログインします。`);
-  client.user.setActivity("蛙化を判定中", { type: "WATCHING" });
+  client.user.setPresence({
+    activities: [{ name: "蛙化", type: ActivityType.Watching }],
+    status: "online",
+  });
 });
 
 client.on("messageCreate", (message) => handleMessageCreate(message, model));
