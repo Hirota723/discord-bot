@@ -12,6 +12,7 @@ const {
 } = require("@google/generative-ai");
 const { handleMessageCreate } = require("./handlers/messageCreate.js");
 require("./server.js");
+const OpenAI = require("openai");
 
 dotenv.config();
 
@@ -60,6 +61,15 @@ client.once(Events.ClientReady, (c) => {
   });
 });
 
-client.on("messageCreate", (message) => handleMessageCreate(message, model));
+const openai_model = process.env.OPENAI_MODEL;
+
+const openai = new OpenAI({
+  organization: process.env.OPENAI_ORG,
+  project: process.env.OPENAI_PROJECT_ID,
+});
+
+client.on("messageCreate", (message) =>
+  handleMessageCreate(message, model, openai_model, openai)
+);
 
 client.login(process.env.DISCORD_TOKEN);
