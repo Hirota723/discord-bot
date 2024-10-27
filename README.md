@@ -14,6 +14,7 @@
 ## .env ファイルの設定
 
 ```env
+.env.example
 DISCORD_TOKEN=
 GOOGLE_API_KEY=
 ```
