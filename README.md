@@ -10,6 +10,7 @@
 - Node.js
 - Discord.js
 - Generative AI
+- OpenAI
 
 ## .env ファイルの設定
 
